@@ -6,7 +6,7 @@
   height: 100vh;
 }
 
-.header {
+.title {
   font-family: 'DM Sans', sans-serif;
   padding-top: 0.4em;
   font-size: 3em;
@@ -14,7 +14,7 @@
   margin: 0;
 }
 
-.sub-header {
+.sub-title {
   padding-bottom: 0.7em;
   margin: 0;
 }

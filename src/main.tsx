@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
+import Events from './pages/Events.tsx'
+import Standings from './pages/Standings.tsx'
 import './index.css'
 import {
   createBrowserRouter,
@@ -10,11 +12,11 @@ import {
 const router = createBrowserRouter([
   {
     path: "/events",
-    element: <a href="/"><p>Events</p></a>
+    element: <Events/>
   },
   {
     path: "/standings",
-    element: <a href="/"><p>Standings</p></a>
+    element: <Standings/>
   },
   {
     path: "/",
