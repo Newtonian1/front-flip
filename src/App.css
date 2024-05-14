@@ -1,0 +1,27 @@
+@import url("./fonts/fonts.css");
+
+#root {
+  padding: 2rem;
+  text-align: center;
+  height: 100vh;
+  border: 2px solid yellow;
+}
+
+.header {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.sub-header {
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  border: 2px solid red;
+  min-height: 87vh;
+  padding: 1rem 0;
+}
+
