@@ -1,27 +1,53 @@
-@import url("./fonts/fonts.css");
+@import url("./css/fonts.css");
 
 #root {
-  padding: 2rem;
+  padding: 0;
   text-align: center;
   height: 100vh;
-  border: 2px solid yellow;
 }
 
 .header {
   font-family: 'DM Sans', sans-serif;
-  font-size: 3.2em;
+  padding-top: 0.4em;
+  font-size: 3em;
   line-height: 1.1;
   margin: 0;
 }
 
 .sub-header {
-  padding: 0;
+  padding-bottom: 0.7em;
   margin: 0;
 }
 
 .content {
-  border: 2px solid red;
+  background-color: #EBF8FF;
+  color: #051923;
   min-height: 87vh;
+  width: 100vw;
   padding: 1rem 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
+.nav-button-container {
+  margin: 1em;
+  border-radius: 5px;
+}
+
+.nav-button {
+  color: #EBF8FF;
+  background-color: #003554;
+  font-size: 1em;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  padding: 3em 1em;
+  min-width: 100%;
+  border: none;
+  border-radius: inherit;
+}
+
+.nav-button:hover {
+  background-color: #0AA9FF;
+  color: #051923;
+}
