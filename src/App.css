@@ -3,7 +3,6 @@
 #root {
   padding: 0;
   text-align: center;
-  height: 100vh;
 }
 
 .title {
@@ -22,7 +21,7 @@
 .content {
   background-color: #EBF8FF;
   color: #051923;
-  min-height: 87vh;
+  min-height: 90vh;
   width: 100vw;
   padding: 1rem 0;
   margin: 0;

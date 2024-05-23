@@ -1,5 +1,6 @@
 import Header from "./Header.tsx"
-import {useState} from 'react';
+import "../css/Events.css"
+import {useState, useEffect} from 'react';
 
 function Events() {
     //Variables
@@ -12,7 +13,8 @@ function Events() {
         startDate: Date,
         endDate: Date,
         region: string,
-        stages: Stage[]
+        stages: Stage[],
+        liquipedia: string
     }
 
     type Stage = {
@@ -56,6 +58,11 @@ function Events() {
     }
 
     //Functions
+    useEffect(() => {
+        if (events == undefined)
+            getEvents();
+    });
+
     function getEvents() {
         let eventArray: Event[] = [];
         try {
@@ -64,6 +71,12 @@ function Events() {
                 .then(json => {
                     console.log(json.events);
                     eventArray = json.events.map((event: JsonEvent) => mapJsonToEvent(event));
+
+                    //Filter out past events
+                    const today: Date = new Date();
+                    eventArray = eventArray.filter((event: Event) => {return new Date(event.endDate) >= today});
+
+                    eventArray.sort(sortEventsByDate);
                     setEvents(eventArray);
                 })
         }
@@ -85,16 +98,28 @@ function Events() {
             startDate: jsonObject.startDate,
             endDate: jsonObject.endDate,
             region: jsonObject.region,
-            stages: []
+            stages: [],
+            liquipedia: jsonObject.stages[jsonObject.stages.length - 1].liquipedia
         }
         return eventObject;
+    }
+
+    function sortEventsByDate(firstEvent: Event, secondEvent: Event) {
+        return firstEvent.startDate > secondEvent.startDate ? 1 : -1;
+    }
+
+    function getClasses(event: Event) {
+        let classes: string = "event-card";
+        if (event.liquipedia != undefined)
+            classes = classes + " has-link";
+        return classes;
     }
 
     return (
         <div className="main">
             <Header title="Events"/>
-            <button onClick={getEvents}>Get Events</button>
-            <ul>{events?.map(x=><li key={x.id}>{x.name}</li>)}</ul>
+            <h4>Upcoming:</h4>
+            <ul className="events-container">{events?.map(x=><a key={x.id} className={getClasses(x)} href={x.liquipedia}><li>{x.name}</li></a>)}</ul>
         </div>
     )
 }
